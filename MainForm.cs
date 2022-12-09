@@ -103,9 +103,11 @@ namespace OOP_Lab4
         {
             if (FileDirector.IsChanged == true)
             {
-                using var saveDialogForm = new SaveDialogForm();
-                saveDialogForm.Text = "Дані не збережено";
-                saveDialogForm.Owner = this;
+                SaveDialogForm saveDialogForm = new()
+                {
+                    Text = "Дані не збережено",
+                    Owner = this
+                };
                 saveDialogForm.ShowDialog();
 
                 if (saveDialogForm.DialogResult == DialogResult.OK)
@@ -131,9 +133,11 @@ namespace OOP_Lab4
 
         private void InfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using var infoForm = new InfoForm();
-            infoForm.Text = "Про програму";
-            infoForm.Owner = this;
+            InfoForm infoForm = new()
+            {
+                Text = "Про програму",
+                Owner = this
+            };
             infoForm.ShowDialog();
         }
 
@@ -142,9 +146,11 @@ namespace OOP_Lab4
         {
             var obj = new Student();
 
-            using var editForm = new EditForm(obj);
-            editForm.Text = "Додавання";
-            editForm.Owner = this;
+            EditForm editForm = new(obj)
+            {
+                Text = "Додавання",
+                Owner = this
+            };
             editForm.ShowDialog();
 
             if (editForm.DialogResult == DialogResult.OK)
@@ -165,7 +171,7 @@ namespace OOP_Lab4
 
                 var obj = House.Students[index];
 
-                using var editForm = new EditForm(obj);
+                EditForm editForm = new(obj);
                 editForm.Text = "Редагування";
                 editForm.Owner = this;
                 editForm.ShowDialog();
@@ -283,7 +289,7 @@ namespace OOP_Lab4
         {
             if (FileDirector.IsChanged == true)
             {
-                using var saveDialogForm = new SaveDialogForm();
+                SaveDialogForm saveDialogForm = new();
                 saveDialogForm.Text = "Дані не збережено";
                 saveDialogForm.Owner = this;
                 saveDialogForm.ShowDialog();
